@@ -1,13 +1,19 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
 int main()
 {
+    //Test Cases
     string test1 = "DUDU";
     string test2 = "DDUU";
     string test3 = "DDUUDUUDUDUUDDDUUD";
     string test4 = "DUUDDDUUUD";
+    
+    
     int threshold = 0;
-    bool negative = false;
-    int count = 0;
-    for(int i = 0; i < test4.length(); i++)
+    bool isNegative = false;  //check if the threshold have been in the negative
+    int count = 0;            //Keeps track of the times it has gone back from a negative threshold
+    for(int i = 0; i < test4.length(); i++) //here's where you change the test number to change the test string, also increments through the log entries
     {
         
         if(test4[i] == 'D')
@@ -15,7 +21,7 @@ int main()
             --threshold;
             if(threshold < 0)
             {
-                negative = true;
+                isNegative = true;
             }
         }
         else
@@ -23,12 +29,12 @@ int main()
             ++threshold;
         }
         //cout << "threshold " << threshold << endl;
-        if(threshold == 0 && negative == true )
+        if(threshold == 0 && isNegative == true )
         {
             count++;
-            negative = false;
+            isNegative = false;
         }
     }
     cout << count << endl;
-    return count;
+    return 0;
 }
