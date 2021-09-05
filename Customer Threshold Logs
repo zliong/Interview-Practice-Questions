@@ -1,0 +1,34 @@
+int main()
+{
+    string test1 = "DUDU";
+    string test2 = "DDUU";
+    string test3 = "DDUUDUUDUDUUDDDUUD";
+    string test4 = "DUUDDDUUUD";
+    int threshold = 0;
+    bool negative = false;
+    int count = 0;
+    for(int i = 0; i < test4.length(); i++)
+    {
+        
+        if(test4[i] == 'D')
+        {
+            --threshold;
+            if(threshold < 0)
+            {
+                negative = true;
+            }
+        }
+        else
+        {
+            ++threshold;
+        }
+        //cout << "threshold " << threshold << endl;
+        if(threshold == 0 && negative == true )
+        {
+            count++;
+            negative = false;
+        }
+    }
+    cout << count << endl;
+    return count;
+}
